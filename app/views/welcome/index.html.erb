@@ -20,20 +20,12 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2>About</h2>
-                <hr class="star-primary">
+                <hr class="star-primary">                
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-lg-offset-2">
-                <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-            </div>
-            <div class="col-lg-4">
-                <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-            </div>
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <a href="#" class="btn btn-lg btn-outline">
-                    <i class="fa fa-download"></i> Download Theme
-                </a>
+            <div class="col-lg-6 col-lg-offset-3">
+                <p>Hey, I'm Jeff! I am a full stack developer living in Plano, Texas.</p>
+                <p>I am constantly improving my knowledge in web technologies and am currently sharpening my skills in the <a href="#">Ruby on Rails framework</a> to facilitate the creation of amazing applicaitons.</p>
+                <p>You can follow my random interests and thoughts on twitter and see some of my code on Github.</p>
             </div>
         </div>
     </div>
@@ -124,36 +116,37 @@
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <form name="sentMessage" id="contactForm" novalidate>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Name</label>
-                            <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
-                            <p class="help-block text-danger"></p>
-                        </div>
+                <%= form_for @contact do |f| %>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, required: true, :class => "form-control", :placeholder => "Name" %>
                     </div>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Email Address</label>
-                            <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
-                            <p class="help-block text-danger"></p>
-                        </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <%= f.label :email %>
+                        <%= f.email_field :email, required: true, :class => "form-control", :placeholder => "Email" %>
                     </div>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Message</label>
-                            <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                            <p class="help-block text-danger"></p>
-                        </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <%= f.label :message %>
+                        <%= f.text_area :message, as: :text, :class => "form-control", :placeholder => "Message" %>
                     </div>
-                    <br>
-                    <div id="success"></div>
-                    <div class="row">
-                        <div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-success btn-lg">Send</button>
-                        </div>
+                </div>
+                <div class="hidden">
+                    <%= f.label :nickname %>
+                    <%= f.text_field :nickname, hint: 'leave this field blank' %>
+                </div>
+                <br>
+                <div id="success"></div>
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <%= f.submit 'Send Message', :class => "btn btn-success btn-lg" %>
                     </div>
-                </form>
+                </div>
+                <% end %>
             </div>
         </div>
     </div>
