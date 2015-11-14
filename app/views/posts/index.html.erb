@@ -1,13 +1,25 @@
-<h1 id="page_title">Stuff I've Written</h1>
-
-<div id="posts_wrapper" class="skinny_wrapper">
-	<% @posts.each do |post| %>
-		<div class="post">
-		<p class="date"><%= post.created_at.strftime('%A, %B, %d') %></p>
-		<h2><a href="#"><%= link_to post.title, post %></a></h2>
-		<hr>
+<section id="blog">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2>Blog</h2>
+        <hr class="star-primary">
+        <% @posts.each do |post| %>
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <p class="date"><%= post.created_at.strftime("%A, %b, %d") %></p>                                    	
+                    <h3><%= link_to post.title, post %></h3>
+                </div>      
+            </div>
+            <div class="row text-left">
+            	<div class="col-lg-8 col-lg-offset-2">
+            		<p><%= markdown truncate(post.content, :length => 225) %></p>
+            		<p class="text-center"><%= link_to "Read More", post %></p>
+            	</div>
+            </div>
+            <hr class="content-divider">
+        <% end %>		
+			</div>
+		</div>
 	</div>
-	<% end %>
-</div>
-
-<%= will_paginate @posts %>
+</section>

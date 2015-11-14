@@ -1,11 +1,28 @@
-<h1 id="page_title">Stuff I've Built</h1>
-
-<div id="posts_wrapper" class="skinny_wrapper">
-	<% @projects.each do |project| %>
-		<div class="post">
-		<p class="date"><%= project.created_at.strftime('%A, %B, %d') %></p>
-		<h2><a href="#"><%= link_to project.title, project %></a></h2>
-		<hr>
+<section id="projects">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2>Projects</h2>
+        <hr class="star-primary">
+        <% @projects.each do |project| %>
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <p class="date"><%= project.created_at.strftime("%A, %b, %d") %></p>                                    	
+                    <h3><%= link_to project.title, project %></h3>
+                </div>      
+            </div>
+            <div class="row text-left">
+            	<div class="col-lg-8 col-lg-offset-2">
+            		<p><%= markdown truncate(project.description, :length => 225) %></p>
+            		<div class="article-actions">
+            			<%= link_to "Read More", project %>
+            			<a href="<%= project.link %>" class="project_button" target="_blank">Visit <%= project.title %></a>
+            		</div>
+            	</div>
+            </div>
+            <hr class="content-divider">
+        <% end %>		
+			</div>
+		</div>
 	</div>
-	<% end %>
-</div>
+</section>
