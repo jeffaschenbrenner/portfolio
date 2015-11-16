@@ -39,6 +39,7 @@ $('body').scrollspy({
 // Closes the Responsive Menu on Menu Item Click
 $(function() {
     $('.navbar-collapse ul li a:not(.dropdown-toggle').click(function() {
+        console.log("Menu Item selected!");
         $('.navbar-toggle:visible').click();
     }); 
 });

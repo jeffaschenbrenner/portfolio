@@ -1,4 +1,3 @@
- // @import 'normalize';
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
 
@@ -345,6 +344,13 @@ section.success a {
     }
 }
 
+#projects-blog {
+    padding-top: 40px;
+    h2 {
+        margin-top: 60px;
+    }
+}
+
 @media(min-width:767px) {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
@@ -491,6 +497,4 @@ footer {
     outline: 0;
 }
 
-// @import 'welcome';
-// @import 'posts_projects';
-// @import 'pygments';
+@import 'pygments';
